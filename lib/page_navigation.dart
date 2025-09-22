@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'widgets/container_widget.dart';
-import 'widgets/text_widget.dart';
+import 'package:mahmoudbakir_week2_widgetcatalog/widgets/design_systems/cupertino_widgets/3_cupertino_alert_dialoge.dart';
+import 'package:mahmoudbakir_week2_widgetcatalog/widgets/design_systems/cupertino_widgets/4_cupertino_context_menu.dart';
+import 'widgets/design_systems/cupertino_widgets/1_cupertino_action_sheet.dart';
+import 'widgets/design_systems/cupertino_widgets/2_cupertino_activity_indicator.dart';
 
 class PageNavigation extends StatefulWidget {
   const PageNavigation({super.key});
@@ -36,7 +38,10 @@ class _PageNavigationState extends State<PageNavigation> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Mahmoud Bakir Week 2 Widget Catalog'),
+        title: const Text(
+          'Mahmoud Bakir Week 2 Widget Catalog',
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+        ),
         centerTitle: true,
         backgroundColor: Colors.blue,
       ),
@@ -77,7 +82,7 @@ class _PageNavigationState extends State<PageNavigation> {
                     vertical: 8,
                   ),
                   decoration: BoxDecoration(
-                    color: Colors.blue.withOpacity(0.1),
+                    color: Colors.blue.withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: Text(
@@ -111,8 +116,10 @@ class _PageNavigationState extends State<PageNavigation> {
   Widget _buildPage(int index) {
     // List of all widget pages
     final List<Widget> widgetPages = [
-      const ContainerWidget(),
-      const TextWidget(),
+      const CupertinoActionSheetWidget(),
+      const CupertinoActivityIndicatorWidget(),
+      CupertinoAlertDialogeWidget(),
+      CupertinoContextMenuWidget(),
     ];
 
     // Return the widget at the current index, or a placeholder if index is out of range
@@ -123,9 +130,9 @@ class _PageNavigationState extends State<PageNavigation> {
       return Container(
         margin: const EdgeInsets.all(16.0),
         decoration: BoxDecoration(
-          color: Colors.blue.withOpacity(0.1),
+          color: Colors.blue.withValues(alpha: 0.1),
           borderRadius: BorderRadius.circular(16),
-          border: Border.all(color: Colors.blue.withOpacity(0.3)),
+          border: Border.all(color: Colors.blue.withValues(alpha: 0.3)),
         ),
       );
     }
