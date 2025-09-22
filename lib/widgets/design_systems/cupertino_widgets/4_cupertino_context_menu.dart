@@ -1,4 +1,4 @@
-  import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
 class CupertinoContextMenuWidget extends StatelessWidget {
@@ -41,39 +41,24 @@ class CupertinoContextMenuWidget extends StatelessWidget {
           Expanded(
             child: Padding(
               padding: const EdgeInsets.all(20.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  CupertinoButton(
-                    onPressed:
-                        () => showCupertinoDialog(
-                          context: context,
-                          builder:
-                              (context) => CupertinoAlertDialog(
-                                title: Text("Alert"),
-                                content: Text(
-                                  "This is Cupertino Alert Dialoge",
-                                ),
-                                actions: [
-                                  CupertinoDialogAction(
-                                    isDestructiveAction: true,
-                                    onPressed: () => Navigator.pop(context),
-                                    child: Text("No"),
-                                  ),
-                                  CupertinoDialogAction(
-                                    child: Text("Yes"),
-                                    onPressed: () => Navigator.pop(context),
-                                  ),
-                                ],
-                              ),
-                        ),
-                    color: CupertinoColors.systemBlue,
-                    child: Text(
-                      "Context Menu",
-                      style: TextStyle(color: Colors.white),
+              child: SizedBox(
+                height: 100,
+                width: 100,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    CupertinoContextMenu(
+                      actions: [
+                        CupertinoContextMenuAction(child: Text("Action 1")),
+                        CupertinoContextMenuAction(child: Text("Action 2")),
+                      ],
+                      child: Image.network(
+                        "https://tse3.mm.bing.net/th/id/OIP.PHCt-7Qch7TjcTBCv6rqdQHaHa?pid=ImgDet&w=184&h=184&c=7&dpr=1.4&o=7&rm=3",
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),
