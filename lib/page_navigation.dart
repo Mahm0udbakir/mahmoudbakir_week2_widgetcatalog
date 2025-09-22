@@ -1,6 +1,6 @@
-
-
 import 'package:flutter/material.dart';
+import 'widgets/container_widget.dart';
+import 'widgets/text_widget.dart';
 
 class PageNavigation extends StatefulWidget {
   const PageNavigation({super.key});
@@ -12,7 +12,7 @@ class PageNavigation extends StatefulWidget {
 class _PageNavigationState extends State<PageNavigation> {
   final PageController _pageController = PageController();
   int _currentPage = 0;
-  final int _totalPages = 60; 
+  final int _totalPages = 60;
 
   void _goToPreviousPage() {
     if (_currentPage > 0) {
@@ -37,7 +37,8 @@ class _PageNavigationState extends State<PageNavigation> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Mahmoud Bakir Week 2 Widget Catalog'),
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        centerTitle: true,
+        backgroundColor: Colors.blue,
       ),
       body: Column(
         children: [
@@ -71,7 +72,10 @@ class _PageNavigationState extends State<PageNavigation> {
                 ),
                 // Page indicator
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 8,
+                  ),
                   decoration: BoxDecoration(
                     color: Colors.blue.withOpacity(0.1),
                     borderRadius: BorderRadius.circular(20),
@@ -87,10 +91,14 @@ class _PageNavigationState extends State<PageNavigation> {
                 ),
                 // Right arrow
                 IconButton(
-                  onPressed: _currentPage < _totalPages - 1 ? _goToNextPage : null,
+                  onPressed:
+                      _currentPage < _totalPages - 1 ? _goToNextPage : null,
                   icon: const Icon(Icons.arrow_forward_ios),
                   iconSize: 32,
-                  color: _currentPage < _totalPages - 1 ? Colors.blue : Colors.grey,
+                  color:
+                      _currentPage < _totalPages - 1
+                          ? Colors.blue
+                          : Colors.grey,
                 ),
               ],
             ),
@@ -101,43 +109,26 @@ class _PageNavigationState extends State<PageNavigation> {
   }
 
   Widget _buildPage(int index) {
-    return Container(
-      margin: const EdgeInsets.all(16.0),
-      decoration: BoxDecoration(
-        color: Colors.blue.withOpacity(0.1),
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: Colors.blue.withOpacity(0.3)),
-      ),
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(
-              Icons.description,
-              size: 80,
-              color: Colors.blue,
-            ),
-            const SizedBox(height: 20),
-            Text(
-              'Page ${index + 1}',
-              style: const TextStyle(
-                fontSize: 32,
-                fontWeight: FontWeight.bold,
-                color: Colors.blue,
-              ),
-            ),
-            const SizedBox(height: 10),
-            Text(
-              'This is the content of page ${index + 1}',
-              style: const TextStyle(
-                fontSize: 16,
-                color: Colors.grey,
-              ),
-            ),
-          ],
+    // List of all widget pages
+    final List<Widget> widgetPages = [
+      const ContainerWidget(),
+      const TextWidget(),
+    ];
+
+    // Return the widget at the current index, or a placeholder if index is out of range
+    if (index < widgetPages.length) {
+      return widgetPages[index];
+    } else {
+      // Placeholder for pages not yet created
+      return Container(
+        margin: const EdgeInsets.all(16.0),
+        decoration: BoxDecoration(
+          color: Colors.blue.withOpacity(0.1),
+          borderRadius: BorderRadius.circular(16),
+          border: Border.all(color: Colors.blue.withOpacity(0.3)),
         ),
-      ),
-    );
+      );
+    }
   }
 
   @override
