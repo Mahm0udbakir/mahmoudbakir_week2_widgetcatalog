@@ -9,6 +9,7 @@ class CupertinoSwitchWidget extends StatefulWidget {
 }
 
 class _CupertinoSwitchWidgetState extends State<CupertinoSwitchWidget> {
+  bool _lights=true;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -46,22 +47,18 @@ class _CupertinoSwitchWidgetState extends State<CupertinoSwitchWidget> {
           Expanded(
             child: Padding(
               padding: const EdgeInsets.all(20.0),
-              child: SizedBox(
-                height: 100,
-                width: 100,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    CupertinoSwitch(
-                      value: true,
-                      onChanged:
-                          (bool value) => setState(() {
-                            value != value;
-                          }),
-                    ),
-                  ],
-                ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CupertinoSwitch(
+                    value: _lights,
+                    onChanged:
+                        (bool value) => setState(() {
+                          _lights = value;
+                        }),
+                  ),
+                ],
               ),
             ),
           ),

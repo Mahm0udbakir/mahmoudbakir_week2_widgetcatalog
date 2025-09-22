@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mahmoudbakir_week2_widgetcatalog/widgets/design_systems/cupertino_widgets/3_cupertino_alert_dialoge.dart';
 import 'package:mahmoudbakir_week2_widgetcatalog/widgets/design_systems/cupertino_widgets/4_cupertino_context_menu.dart';
 import 'package:mahmoudbakir_week2_widgetcatalog/widgets/design_systems/cupertino_widgets/5_cupertino_date_picker.dart';
+import 'package:mahmoudbakir_week2_widgetcatalog/widgets/design_systems/cupertino_widgets/6_cupertino_switch.dart';
 import 'widgets/design_systems/cupertino_widgets/1_cupertino_action_sheet.dart';
 import 'widgets/design_systems/cupertino_widgets/2_cupertino_activity_indicator.dart';
 
@@ -120,7 +121,9 @@ class _PageNavigationState extends State<PageNavigation> {
       const CupertinoActionSheetWidget(),
       const CupertinoActivityIndicatorWidget(),
       CupertinoAlertDialogeWidget(),
-      CupertinoContextMenuWidget(),CupertinoDatePickerWidget()
+      CupertinoContextMenuWidget(),
+      CupertinoDatePickerWidget(),
+      CupertinoSwitchWidget(),
     ];
 
     // Return the widget at the current index, or a placeholder if index is out of range
