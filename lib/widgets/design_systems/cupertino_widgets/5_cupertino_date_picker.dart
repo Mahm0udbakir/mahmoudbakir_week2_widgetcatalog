@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
-class CupertinoContextMenuWidget extends StatelessWidget {
-  const CupertinoContextMenuWidget({super.key});
+class CupertinoDatePickerWidget extends StatefulWidget {
+  const CupertinoDatePickerWidget({super.key});
 
+  @override
+  State<CupertinoDatePickerWidget> createState() => _CupertinoDatePickerWidgetState();
+}
+
+class _CupertinoDatePickerWidgetState extends State<CupertinoDatePickerWidget> {
+  DateTime _selectedDate = DateTime.now();
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -27,7 +33,7 @@ class CupertinoContextMenuWidget extends StatelessWidget {
               ),
             ),
             child: const Text(
-              'Context Menu',
+              'Cupertino Date Picker',
               style: TextStyle(
                 fontSize: 20,
                 color: Colors.white,
@@ -41,34 +47,21 @@ class CupertinoContextMenuWidget extends StatelessWidget {
           Expanded(
             child: Padding(
               padding: const EdgeInsets.all(20.0),
-              child: SizedBox(
-                height: 100,
-                width: 100,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    CupertinoContextMenu(
-                      actions: [
-                        CupertinoContextMenuAction(
-                          child: Text("Action 1"),
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                          },
-                        ),
-                        CupertinoContextMenuAction(
-                          child: Text("Action 2"),
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                          },
-                        ),
-                      ],
-                      child: Image.network(
-                        "https://static.vecteezy.com/system/resources/previews/022/431/845/original/blue-flower-no-background-free-free-png.png",
-                      ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    height: 200,
+                    child: CupertinoDatePicker(
+                      initialDateTime: _selectedDate,
+                      onDateTimeChanged: (DateTime newDateTime) {
+                        setState(() {
+                          _selectedDate = newDateTime;
+                        });
+                      },
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ),

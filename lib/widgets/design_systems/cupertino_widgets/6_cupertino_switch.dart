@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
-class CupertinoContextMenuWidget extends StatelessWidget {
-  const CupertinoContextMenuWidget({super.key});
+class CupertinoSwitchWidget extends StatefulWidget {
+  const CupertinoSwitchWidget({super.key});
 
+  @override
+  State<CupertinoSwitchWidget> createState() => _CupertinoSwitchWidgetState();
+}
+
+class _CupertinoSwitchWidgetState extends State<CupertinoSwitchWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -27,7 +32,7 @@ class CupertinoContextMenuWidget extends StatelessWidget {
               ),
             ),
             child: const Text(
-              'Context Menu',
+              'Switch',
               style: TextStyle(
                 fontSize: 20,
                 color: Colors.white,
@@ -48,24 +53,12 @@ class CupertinoContextMenuWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    CupertinoContextMenu(
-                      actions: [
-                        CupertinoContextMenuAction(
-                          child: Text("Action 1"),
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                          },
-                        ),
-                        CupertinoContextMenuAction(
-                          child: Text("Action 2"),
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                          },
-                        ),
-                      ],
-                      child: Image.network(
-                        "https://static.vecteezy.com/system/resources/previews/022/431/845/original/blue-flower-no-background-free-free-png.png",
-                      ),
+                    CupertinoSwitch(
+                      value: true,
+                      onChanged:
+                          (bool value) => setState(() {
+                            value != value;
+                          }),
                     ),
                   ],
                 ),
