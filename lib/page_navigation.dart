@@ -23,7 +23,7 @@ class PageNavigation extends StatefulWidget {
 class _PageNavigationState extends State<PageNavigation> {
   final PageController _pageController = PageController();
   int _currentPage = 0;
-  final int _totalPages = 60;
+  final int _totalPages = 20;
 
   void _goToPreviousPage() {
     if (_currentPage > 0) {
