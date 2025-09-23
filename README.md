@@ -10,6 +10,7 @@ Learning process and scope:
 - Categories include Design Systems (Material/Cupertino) and Base Widgets (Semantics, Animation, Basic Widgets, etc.).
 - The `PageView` navigation lets you move sequentially through the catalog like a course, reinforcing concepts as you go.
 - The goal is a full, practical tour of Flutter’s built-in widget toolbox—by reading, running, and tweaking real examples.
+- Initially, I used to search for widgets only when I needed them; now I’m taking a full tour through each default widget, which is far more helpful. I also followed Flutter’s official “Widget of the Week” YouTube playlist as a companion while building these demos.
 
 ## Table of Contents
 
