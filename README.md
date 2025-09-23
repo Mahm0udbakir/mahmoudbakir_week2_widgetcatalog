@@ -4,6 +4,13 @@
 
 Welcome to Flutter Widget Catalog! This app showcases a curated catalog of Flutter widgets with focused, runnable demos for both Material and Cupertino design systems, plus core/base widgets. It’s designed as a learning reference to explore widget usage, properties, accessibility, and animations in a clean, browsable format.
 
+Learning process and scope:
+- This repository is a hands-on learning track covering Flutter’s default widgets, page-by-page.
+- Each page introduces one widget with a minimal, self-contained example, notes, and small variations.
+- Categories include Design Systems (Material/Cupertino) and Base Widgets (Semantics, Animation, Basic Widgets, etc.).
+- The `PageView` navigation lets you move sequentially through the catalog like a course, reinforcing concepts as you go.
+- The goal is a full, practical tour of Flutter’s built-in widget toolbox—by reading, running, and tweaking real examples.
+
 ## Table of Contents
 
 - [Installation](#installation)
